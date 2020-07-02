@@ -105,12 +105,12 @@ oddRows = BooksData(path=path_).makeSheet(True).getOddrows()
 print(fullTable)
 print(oddRows)
 
-chevalier = (fullTable[fullTable['Author'] == 'chevalier'])
+chevalier = fullTable[fullTable['Author'] == 'chevalier']
 
 print(fullTable.head(10))
 
 print("\n\nrow 5 :\n", fullTable.loc[5])
 print("\n\nknown book for unknown authors : \n", fullTable.loc[fullTable['Author'] == 'UnKnown author'])
-print("\n\nfirst 3 rows written by chevalier :\n", chevalier)
+print("\n\nfirst 3 rows written by chevalier :\n", chevalier.head(3))
 print("\n\nrows with shakespeare as author, and has unique words > 30000 :\n",
       fullTable[(fullTable.Author == 'shakespeare') & (fullTable.countedWords > 30000)])
