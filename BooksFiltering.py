@@ -9,17 +9,13 @@ class BooksData:
     BooksData Class used to filter the books in Books dir path
     Actually the Class doesn't do a lot as  much as it's a flexible way to have more functions together.
     """
-    def __init__(self, path=None, data=False, BooksMethods=False):
+    def __init__(self, path=None, data=False):
         """
-
         :param path: to write the path of Books dir
         :param data: it's used to take in frames to work with, with the class methods
-        :param BooksMethods: the default is false (To bring you back the Table) --> if it's Turned To True ,
-            it'll will not bring you the data ,, but it'll handle it for another later methods
         """
         self.path = path
         self.data = data
-        self.BooksMethods = BooksMethods
 
     @staticmethod
     def read_words_list(txt_):
@@ -45,8 +41,12 @@ class BooksData:
         return keys, value
 
     def return_(self, methods):
+        """
+        :param methods: is got from methods, to determine whether to return the data,
+        or prepare it for another method
+        """
         if methods:
-            return BooksData(path=self.path, data=self.data, BooksMethods=methods)
+            return BooksData(path=self.path, data=self.data)
         else:
             return self.data
 
